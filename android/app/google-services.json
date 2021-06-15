@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "82196566788",
+    "firebase_url": "https://chilli-54ad8-default-rtdb.firebaseio.com",
+    "project_id": "chilli-54ad8",
+    "storage_bucket": "chilli-54ad8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82196566788:android:40b8bf95131bf49c80f651",
+        "android_client_info": {
+          "package_name": "com.salazard.chilli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82196566788-6vdgbjaoiqc9cgl53ne0bieulvvunp2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVniS4u9EGaq49wkjdSz5ZHM5wEktvaQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82196566788-6vdgbjaoiqc9cgl53ne0bieulvvunp2i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "82196566788-49k931pn3v3oi8vk9aekfr3utes0ag4i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.salazard.chilli"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
