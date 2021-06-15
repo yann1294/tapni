@@ -32,14 +32,14 @@ class LoginState{
 
 
   LoginState update({
-    final bool isEmailValid, isPasswordValid
+     bool isEmailValid, isPasswordValid
     // final bool isPasswordValid;
   }){
     return copyWith(
         isEmailValid: isEmailValid,
         isPasswordValid:  isPasswordValid,
         isSubmitting: false,
-        isSuccess: true,
+        isSuccess: false,
         isFailure: false
     );
   }

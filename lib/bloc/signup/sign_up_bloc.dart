@@ -14,24 +14,29 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   UserRepository _userRepository;
 
   SignUpBloc({@required UserRepository userRepository})
-      :assert(userRepository!=null), _userRepository = userRepository, super(null);
+      :assert(userRepository!=null), _userRepository = userRepository;
 
 
   @override
   SignUpState get initialState => SignUpState.empty();
 
   @override
-  Stream<Transition<SignUpEvent,SignUpState>> transformEvents(
+  Stream<SignUpState> transformEvents(
       Stream<SignUpEvent> events,
-      Function(SignUpEvent event) next,
+      Stream<SignUpState> Function(SignUpEvent event) next,
       ) {
-    final nonDebounceStream = events.where((event){
+    final nonDebounceStream = events.where((event) {
       return (event is! EmailChanged || event is! PasswordChanged);
     });
-    final debounceStream = events.where((event){
-      return (event is EmailChanged || event is PasswordChanged );
+
+    final debounceStream = events.where((event) {
+      return (event is EmailChanged || event is PasswordChanged);
     }).debounceTime(Duration(milliseconds: 300));
-    return super.transformEvents(nonDebounceStream.mergeWith([debounceStream]),next);
+
+    return super.transformEvents(
+      nonDebounceStream.mergeWith([debounceStream]),
+      next,
+    );
   }
 
   @override
@@ -59,7 +64,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
    yield SignUpState.loading();
 
    try{
-     await _userRepository.signUpWithEmail(email, password);
+     await _userRepository.signUpWithEmail( email, password);
      yield SignUpState.success();
    } catch(_){
      SignUpState.failure();
