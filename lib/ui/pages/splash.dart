@@ -7,19 +7,19 @@ class Splash extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: backgroundColor,
-        body: Container(
-          width: size.width,
-          child: Center(
-            child: Text(
-              'ObooNy',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: size.width*2,
-              ),
+      backgroundColor: backgroundColor,
+      body: Container(
+        width: size.width * 0.02,
+        child: Center(
+          child: Text(
+            'ObooNy',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: size.width * 2,
             ),
           ),
         ),
+      ),
     );
   }
 }

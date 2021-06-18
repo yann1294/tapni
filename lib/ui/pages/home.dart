@@ -1,5 +1,6 @@
 import 'package:chilli/bloc/authentication/authentication_bloc.dart';
 import 'package:chilli/repositories/userRepository.dart';
+import 'package:chilli/ui/pages/login.dart';
 import 'package:chilli/ui/pages/signUp.dart';
 import 'package:chilli/ui/pages/splash.dart';
 import 'package:chilli/ui/widgets/tabs.dart';
@@ -23,22 +24,22 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => _authenticationBloc,
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: BlocBuilder(
-            bloc: _authenticationBloc,
-            builder:  (BuildContext context, AuthenticationState state){
-              if(state is Uninitialised){
-                return Splash();
-              } else return SignUp(userRepository: _userRepository);
-            },
-          ),
+      create: (context) => _authenticationBloc,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BlocBuilder(
+          bloc: _authenticationBloc,
+          builder: (BuildContext context, AuthenticationState state) {
+            if (state is Uninitialised) {
+              return Splash();
+            } else
+              return Login(userRepository: _userRepository);
+          },
         ),
+      ),
     );
   }
 }

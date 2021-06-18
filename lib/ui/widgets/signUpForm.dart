@@ -32,7 +32,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   void initState() {
-    _signUpBloc = SignUpBloc(userRepository: _userRepository);
+    _signUpBloc = BlocProvider.of<SignUpBloc>(context);
 
     // adding listeners to controllers
 
@@ -51,40 +51,41 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return BlocListener(
-      bloc: _signUpBloc,
+    return BlocListener<SignUpBloc, SignUpState>(
       listener: (BuildContext context, SignUpState state) {
         if (state.isFailure) {
-          Scaffold.of(context).showSnackBar(SnackBar(
-              content: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Sign Up Failed'),
-              Icon(Icons.error),
-            ],
-          )));
+          Scaffold.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
+                content: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Sign Up Failed'),
+                Icon(Icons.error),
+              ],
+            )));
         }
         if (state.isSubmitting) {
           print('isSubmitting');
-          Scaffold.of(context).showSnackBar(SnackBar(
-            content: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Signing Up... '),
-                CircularProgressIndicator(),
-              ],
-            ),
-          ));
-          if (state.isSuccess) {
-            print('Success');
-            BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn());
-            Navigator.of(context).pop();
-          }
+          Scaffold.of(context)
+            ..showSnackBar(SnackBar(
+              content: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Signing Up... '),
+                  CircularProgressIndicator(),
+                ],
+              ),
+            ));
+        }
+        if (state.isSuccess) {
+          print('Success');
+          BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn());
+          Navigator.of(context).pop();
         }
       },
-      child: BlocBuilder(
-        bloc: _signUpBloc,
-        builder: (BuildContext context, SignUpState state) {
+      child: BlocBuilder<SignUpBloc, SignUpState>(
+        builder: (context, state) {
           return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
@@ -94,25 +95,23 @@ class _SignUpFormState extends State<SignUpForm> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   Center(
                     child: Text(
-                      'ObooNy',
+                      "Obooty",
                       style: TextStyle(
-                        fontSize: size.width * 0.1,
-                        color: Colors.white,
-                      ),
+                          fontSize: size.width * 0.2, color: Colors.white),
                     ),
                   ),
                   Container(
                     width: size.width * 0.8,
                     child: Divider(
-                      height: size.height * 0.2,
+                      height: size.height * 0.05,
                       color: Colors.white,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(size.height * 0.01),
+                    padding: EdgeInsets.all(size.height * 0.02),
                     child: TextFormField(
                       controller: _emailController,
                       autovalidate: true,
@@ -120,44 +119,44 @@ class _SignUpFormState extends State<SignUpForm> {
                         return !state.isEmailValid ? "Invalid Email" : null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Email',
+                        labelText: "Email",
                         labelStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: size.height * 0.02,
-                        ),
+                            color: Colors.white, fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                        ),
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                        ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(size.height * 0.01),
+                    padding: EdgeInsets.all(size.height * 0.02),
                     child: TextFormField(
                       controller: _passwordController,
-                      autovalidate: true,
                       autocorrect: false,
                       obscureText: true,
+                      autovalidate: true,
                       validator: (_) {
                         return !state.isPasswordValid
                             ? "Invalid Password"
                             : null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: "Password",
                         labelStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: size.height * 0.02,
-                        ),
+                            color: Colors.white, fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                        ),
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                        ),
                       ),
                     ),
                   ),
@@ -175,15 +174,14 @@ class _SignUpFormState extends State<SignUpForm> {
                               ? Colors.white
                               : Colors.grey,
                           borderRadius:
-                              BorderRadius.circular(size.height * 0.5),
+                              BorderRadius.circular(size.height * 0.05),
                         ),
                         child: Center(
                           child: Text(
-                            'Sign Up',
+                            "Sign Up",
                             style: TextStyle(
-                              fontSize: size.height * 0.025,
-                              color: Colors.blue,
-                            ),
+                                fontSize: size.height * 0.025,
+                                color: Colors.blue),
                           ),
                         ),
                       ),

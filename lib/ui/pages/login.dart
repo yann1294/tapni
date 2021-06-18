@@ -1,15 +1,15 @@
-import 'package:chilli/bloc/signup/sign_up_bloc.dart';
+import 'package:chilli/bloc/login/login_bloc.dart';
 import 'package:chilli/repositories/userRepository.dart';
-import 'package:chilli/ui/widgets/signUpForm.dart';
+import 'package:chilli/ui/widgets/loginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constants.dart';
 
-class SignUp extends StatelessWidget {
+class Login extends StatelessWidget {
   final UserRepository _userRepository;
 
-  SignUp({@required UserRepository userRepository})
+  Login({@required UserRepository userRepository})
       : assert(userRepository != null),
         _userRepository = userRepository;
 
@@ -18,20 +18,16 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Sign Up",
+          'Welcome',
           style: TextStyle(fontSize: 36.0),
         ),
         centerTitle: true,
         backgroundColor: backgroundColor,
         elevation: 0,
       ),
-      body: BlocProvider<SignUpBloc>(
-        create: (context) => SignUpBloc(
-          userRepository: _userRepository,
-        ),
-        child: SignUpForm(
-          userRepository: _userRepository,
-        ),
+      body: BlocProvider<LoginBloc>(
+        create: (context) => LoginBloc(userRepository: _userRepository),
+        child: LoginForm(userRepository: _userRepository),
       ),
     );
   }
