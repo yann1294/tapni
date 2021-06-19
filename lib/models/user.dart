@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
@@ -8,9 +6,17 @@ class User {
   String gender;
   String interestedIn;
   String photo;
+  String socialLink;
   Timestamp age;
   GeoPoint location;
 
-  User({this.uid, this.name, this.gender, this.interestedIn, this.photo,
-      this.age, this.location});
+  User(
+      {this.uid,
+      this.name,
+      this.gender,
+      this.interestedIn,
+      this.photo,
+      this.socialLink,
+      this.age,
+      this.location});
 }
