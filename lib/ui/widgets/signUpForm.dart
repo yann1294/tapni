@@ -98,7 +98,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: <Widget>[
                   Center(
                     child: Text(
-                      "Obooty",
+                      "Oboony",
                       style: TextStyle(
                           fontSize: size.width * 0.2, color: Colors.white),
                     ),

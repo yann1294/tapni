@@ -93,7 +93,7 @@ class _LoginFormState extends State<LoginForm> {
                   children: <Widget>[
                     Center(
                       child: Text(
-                        "Obooty",
+                        "Oboony",
                         style: TextStyle(
                             fontSize: size.width * 0.2, color: Colors.white),
                       ),

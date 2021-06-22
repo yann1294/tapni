@@ -4,16 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-
 class UserRepository {
   final FirebaseAuth _firebaseAuth;
   final Firestore _firestore;
 
-  UserRepository({
-    FirebaseAuth firebaseAuth,
-    Firestore firestore,
-  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+  UserRepository({FirebaseAuth firebaseAuth, Firestore firestore})
+      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
         _firestore = firestore ?? Firestore.instance;
 
   Future<void> signInWithEmail(String email, String password) {
@@ -45,7 +41,7 @@ class UserRepository {
   }
 
   Future<bool> isSignedIn() async {
-    final currentUser = _firebaseAuth.currentUser;
+    final currentUser = _firebaseAuth.currentUser();
     return currentUser != null;
   }
 
@@ -53,21 +49,21 @@ class UserRepository {
     return (await _firebaseAuth.currentUser()).uid;
   }
 
-  // Profile Set up
+  //profile setup
   Future<void> profileSetup(
-    File photo,
-    String userId,
-    String name,
-    String gender,
-    String interestedIn,
-    DateTime age,
-    String socialLinks,
-    GeoPoint location,
-  ) async {
+      File photo,
+      String userId,
+      String name,
+      String gender,
+      String interestedIn,
+      String socialLink,
+      DateTime age,
+      GeoPoint location) async {
     StorageUploadTask storageUploadTask;
     storageUploadTask = FirebaseStorage.instance
         .ref()
         .child('userPhotos')
+        .child(userId)
         .child(userId)
         .putFile(photo);
 
@@ -77,7 +73,7 @@ class UserRepository {
           'uid': userId,
           'photoUrl': url,
           'name': name,
-          'socialLinks': socialLinks,
+          'socialLink': socialLink,
           "location": location,
           'gender': gender,
           'interestedIn': interestedIn,

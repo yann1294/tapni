@@ -44,7 +44,7 @@ class ProfileState {
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
-      isLocationEmpty: false, 
+      isLocationEmpty: false,
       isSocialLinkEmpty: null,
     );
   }
@@ -59,7 +59,7 @@ class ProfileState {
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
-      isLocationEmpty: false, 
+      isLocationEmpty: false,
       isSocialLinkEmpty: null,
     );
   }
@@ -74,7 +74,7 @@ class ProfileState {
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
-      isLocationEmpty: false, 
+      isLocationEmpty: false,
       isSocialLinkEmpty: null,
     );
   }
@@ -89,7 +89,7 @@ class ProfileState {
       isAgeEmpty: false,
       isGenderEmpty: false,
       isInterestedInEmpty: false,
-      isLocationEmpty: false, 
+      isLocationEmpty: false,
       isSocialLinkEmpty: null,
     );
   }
@@ -116,6 +116,7 @@ class ProfileState {
       isLocationEmpty: isLocationEmpty,
     );
   }
+
   ProfileState copyWith({
     bool isPhotoEmpty,
     bool isNameEmpty,
@@ -138,8 +139,7 @@ class ProfileState {
       isAgeEmpty: isAgeEmpty ?? this.isAgeEmpty,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       isSuccess: isSuccess ?? this.isSuccess,
-      isFailure: isFailure ?? this.isFailure, 
+      isFailure: isFailure ?? this.isFailure,
     );
   }
-}
 }
