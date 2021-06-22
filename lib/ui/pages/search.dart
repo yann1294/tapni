@@ -57,14 +57,14 @@ class _SearchState extends State<Search> {
           );
           return Center(
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
+              valueColor: AlwaysStoppedAnimation(Colors.redAccent),
             ),
           );
         }
         if (state is LoadingState) {
           return Center(
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
+              valueColor: AlwaysStoppedAnimation(Colors.redAccent),
             ),
           );
         }
@@ -79,7 +79,7 @@ class _SearchState extends State<Search> {
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Colors.red),
             );
           } else
             return profileWidget(

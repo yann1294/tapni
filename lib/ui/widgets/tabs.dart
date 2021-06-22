@@ -17,7 +17,9 @@ class Tabs extends StatelessWidget {
       Search(
         userId: userId,
       ),
-      Matches(),
+      Matches(
+        userId: userId,
+      ),
       Messages(),
     ];
 
@@ -33,7 +35,10 @@ class Tabs extends StatelessWidget {
             centerTitle: true,
             title: Text(
               "Oboony",
-              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.redAccent),
             ),
             actions: <Widget>[
               IconButton(

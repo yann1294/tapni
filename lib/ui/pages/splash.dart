@@ -14,7 +14,7 @@ class Splash extends StatelessWidget {
           child: Text(
             'OBOONY',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.red,
               fontSize: size.width * 1,
             ),
           ),

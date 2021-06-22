@@ -100,7 +100,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     child: Text(
                       "Oboony",
                       style: TextStyle(
-                          fontSize: size.width * 0.2, color: Colors.white),
+                          fontSize: size.width * 0.2, color: Colors.red),
                     ),
                   ),
                   Container(
@@ -121,7 +121,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
-                            color: Colors.white, fontSize: size.height * 0.03),
+                            color: Colors.red, fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.white, width: 1.0),
@@ -148,7 +148,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
-                            color: Colors.white, fontSize: size.height * 0.03),
+                            color: Colors.red, fontSize: size.height * 0.03),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.white, width: 1.0),
@@ -171,8 +171,8 @@ class _SignUpFormState extends State<SignUpForm> {
                         height: size.height * 0.06,
                         decoration: BoxDecoration(
                           color: isSignUpButtonEnabled(state)
-                              ? Colors.white
-                              : Colors.grey,
+                              ? Colors.black
+                              : Colors.red,
                           borderRadius:
                               BorderRadius.circular(size.height * 0.05),
                         ),
@@ -181,7 +181,7 @@ class _SignUpFormState extends State<SignUpForm> {
                             "Sign Up",
                             style: TextStyle(
                                 fontSize: size.height * 0.025,
-                                color: Colors.blue),
+                                color: Colors.white),
                           ),
                         ),
                       ),

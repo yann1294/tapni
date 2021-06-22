@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Welcome',
-          style: TextStyle(fontSize: 36.0),
+          style: TextStyle(fontSize: 36.0, color: Colors.red),
         ),
         centerTitle: true,
         backgroundColor: backgroundColor,

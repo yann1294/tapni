@@ -19,7 +19,10 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Setup"),
+        title: Text(
+          "Profile Setup",
+          style: TextStyle(color: Colors.red),
+        ),
         centerTitle: true,
         backgroundColor: backgroundColor,
         elevation: 0,

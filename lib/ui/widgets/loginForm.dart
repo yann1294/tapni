@@ -95,7 +95,7 @@ class _LoginFormState extends State<LoginForm> {
                       child: Text(
                         "Oboony",
                         style: TextStyle(
-                            fontSize: size.width * 0.2, color: Colors.white),
+                            fontSize: size.width * 0.2, color: Colors.red),
                       ),
                     ),
                     Container(
@@ -118,8 +118,7 @@ class _LoginFormState extends State<LoginForm> {
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: size.height * 0.03),
+                              color: Colors.red, fontSize: size.height * 0.03),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.white, width: 1.0),
@@ -146,8 +145,7 @@ class _LoginFormState extends State<LoginForm> {
                         decoration: InputDecoration(
                           labelText: "Password",
                           labelStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: size.height * 0.03),
+                              color: Colors.red, fontSize: size.height * 0.03),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.white, width: 1.0),
@@ -172,8 +170,8 @@ class _LoginFormState extends State<LoginForm> {
                               height: size.height * 0.06,
                               decoration: BoxDecoration(
                                 color: isLoginButtonEnabled(state)
-                                    ? Colors.white
-                                    : Colors.grey,
+                                    ? Colors.black
+                                    : Colors.red,
                                 borderRadius:
                                     BorderRadius.circular(size.height * 0.05),
                               ),
@@ -182,7 +180,7 @@ class _LoginFormState extends State<LoginForm> {
                                   "Login",
                                   style: TextStyle(
                                       fontSize: size.height * 0.025,
-                                      color: Colors.blue),
+                                      color: Colors.white),
                                 ),
                               ),
                             ),

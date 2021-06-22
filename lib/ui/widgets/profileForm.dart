@@ -189,7 +189,7 @@ class _ProfileFormState extends State<ProfileForm> {
                     child: Text(
                       "Enter Birthday",
                       style: TextStyle(
-                          color: Colors.white, fontSize: size.width * 0.09),
+                          color: Colors.red, fontSize: size.width * 0.09),
                     ),
                   ),
                   SizedBox(
@@ -204,7 +204,8 @@ class _ProfileFormState extends State<ProfileForm> {
                         child: Text(
                           "You Are",
                           style: TextStyle(
-                              color: Colors.white, fontSize: size.width * 0.09),
+                              color: Colors.redAccent,
+                              fontSize: size.width * 0.09),
                         ),
                       ),
                       Row(
@@ -247,7 +248,8 @@ class _ProfileFormState extends State<ProfileForm> {
                         child: Text(
                           "Looking For",
                           style: TextStyle(
-                              color: Colors.white, fontSize: size.width * 0.09),
+                              color: Colors.redAccent,
+                              fontSize: size.width * 0.09),
                         ),
                       ),
                       Row(
@@ -296,8 +298,8 @@ class _ProfileFormState extends State<ProfileForm> {
                         height: size.height * 0.06,
                         decoration: BoxDecoration(
                           color: isButtonEnabled(state)
-                              ? Colors.white
-                              : Colors.grey,
+                              ? Colors.black
+                              : Colors.red,
                           borderRadius:
                               BorderRadius.circular(size.height * 0.05),
                         ),
@@ -306,7 +308,7 @@ class _ProfileFormState extends State<ProfileForm> {
                           "Save",
                           style: TextStyle(
                               fontSize: size.height * 0.020,
-                              color: Colors.blue),
+                              color: Colors.white),
                         )),
                       ),
                     ),
@@ -328,7 +330,7 @@ class _ProfileFormState extends State<ProfileForm> {
         decoration: InputDecoration(
           labelText: text,
           labelStyle:
-              TextStyle(color: Colors.white, fontSize: size.height * 0.03),
+              TextStyle(color: Colors.red, fontSize: size.height * 0.03),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 1.0),
           ),
